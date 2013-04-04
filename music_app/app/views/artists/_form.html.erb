@@ -1,0 +1,17 @@
+<%= form_for(@artist) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <% Band.all.each do |band| %>
+    <%=
+        check_box_tag(
+        "artist[band_ids][]",
+        band.id,
+        !BandArtist.where(:artist_id => @artist.id, :band_id => band.id).empty?,
+        :id => "band_id_#{band.id}"
+      )
+      %>
+  <%= label_tag "band_id_#{band.id}", band.name%>
+  <% end %>
+
+  <%= f.submit "Create Artist" %>
+<% end %>

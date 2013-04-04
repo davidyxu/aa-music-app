@@ -1,0 +1,7 @@
+<h3>Singles</h3>
+<ul>
+  <% @singles.each do |single| %>
+  <li><%= link_to single.name, single_path(single) %></li>
+  <% end %>
+</ul>
+<%= link_to "Create New Single", new_single_path %>

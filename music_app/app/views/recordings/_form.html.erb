@@ -1,0 +1,20 @@
+<%= form_for(@recording) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :band_id, "Band" %>
+  <%=
+    f.select(
+      :band_id,
+      Band.all.map { |band| [band.name, band.id]}
+    )
+  %><br>
+  <%= f.label :live, "Studio Recording", :value => 0 %>
+  <%= f.radio_button :live, 0%><br/>
+  <%= f.label :live, "Live", :value => 1 %>
+  <%= f.radio_button :live, 1 %><br/>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %><br/>
+  <%= f.submit "Submit" %>
+<% end %>

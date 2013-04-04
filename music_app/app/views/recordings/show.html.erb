@@ -1,0 +1,14 @@
+<h3>Recording: <%= @recording.name %></h3>
+<p>
+  Band: <%= @recording.band.name %><br>
+  Type: <%= @recording.live == 0 ? "Live" : "Studio" %><br/>
+  <%="Description #{@recording.description}" unless @recording.description.nil? %>
+<ul>
+  <% @recording.singles.each do |single| %>
+    <li><%= link_to single.name, single_path(single) %></li>
+  <% end %>
+</ul>
+</p>
+<%#= link_to "All Recordings", recordings_path %>
+<%= link_to "Edit", edit_recording_path(@recording)%>
+<%= link_to "Delete", recording_path(@recording), :method => :delete %>

@@ -1,0 +1,15 @@
+<%= form_for(@single) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br/>
+
+  <%= f.label :recording_id, "Album:" %>
+  <%= f.select :recording_id,
+                Recording.all.map { |recording| [recording.name, recording.id]}%>
+  <br/>
+  <%= f.label :bonus, "Bonus", :value => 1 %>
+  <%= f.radio_button :bonus, 1 %><br>
+  <%= f.label :bonus, "Regular", :value => 0 %>
+  <%= f.radio_button :bonus, 0 %><br>
+
+  <%= f.submit "Create Single" %>
+<% end %>

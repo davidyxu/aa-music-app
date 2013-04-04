@@ -1,0 +1,8 @@
+<h3>Recordings</h3>
+
+<ul>
+<% @recordings.each do |recording| %>
+<li><%= link_to recording.name, recording_path(recording) %></li>
+<% end %>
+</ul>
+<%= link_to "Create New Recording", new_recording_path %>

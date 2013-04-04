@@ -1,0 +1,10 @@
+<h3>Name</h3>
+<%= @artist.name %>
+
+<p>
+  Bands: <%= @artist.bands.map {|band| band.name }.join(", ") %><br>
+</p>
+<h3>Navigation</h3>
+<%#= link_to "All Artists", artists_path %>
+<%= link_to "Edit Artist", edit_artist_path(@artist) %>
+<%= link_to "Delete Artist", artist_path(@artist), :method => :delete%>

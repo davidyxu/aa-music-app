@@ -1,0 +1,9 @@
+<h3>Single: <%= @single.name%></h3>
+<p>
+  Band: <%= @single.recording.name %><br/>
+  Track Type: <%= @single.bonus == 0 ? "Regular" : "Bonus" %>
+  <br/>
+  <%#=link_to "All singles", singles_path %>
+  <%=link_to "Edit", edit_single_path %>
+  <%=link_to "Delete", singles_path(@single), :method => :delete %>
+</p>

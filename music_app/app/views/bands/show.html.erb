@@ -1,0 +1,18 @@
+<h3>Band: <%= @band.name %></h3>
+
+<p>
+  Members:
+  <%= @band.artists.map { |artist| artist.name }.join(", ")%><br/>
+
+  Recordings:
+  <ul>
+  <% @band.recordings.each do |recording| %>
+    <li><%= link_to recording.name, recording_path(recording)%></li>
+  <% end %>
+  </ul>
+</p>
+
+<br/><br/>
+<%#= link_to "All Bands", bands_path %>
+<%= link_to "Edit", edit_band_path(@band) %>
+<%= link_to "Delete", band_path(@band), :method => :delete%>
