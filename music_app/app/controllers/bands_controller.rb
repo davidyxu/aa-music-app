@@ -9,7 +9,7 @@ class BandsController < ApplicationController
     @bands = Band.all
   end
   def create
-    @band = Band.create!(params[:band])
+    @band = Band.create!(params[:band])   #REV you can add validation
     redirect_to band_path(@band)
   end
   def destroy

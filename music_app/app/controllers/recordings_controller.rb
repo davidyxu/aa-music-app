@@ -1,6 +1,6 @@
 class RecordingsController < ApplicationController
   def index
-    case params["query"]
+    case params["query"]    #REV good job. all it needs is search now
     when "name"
       @recordings = Recording.order(:name)
     when "band_name"
