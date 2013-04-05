@@ -1,6 +1,7 @@
 class SinglesController < ApplicationController
   def new
     @single = Single.new
+    @single.recording_id = params[:recording_id]
   end
   def create
     @single = Single.create!(params[:single])

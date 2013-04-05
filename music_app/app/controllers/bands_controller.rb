@@ -25,4 +25,8 @@ class BandsController < ApplicationController
     @band.update_attributes(params[:band])
     redirect_to band_path(@band)
   end
+
+  def search
+    @bands = Band.where("name LIKE ?", "%#{params[:query]}%")
+  end
 end

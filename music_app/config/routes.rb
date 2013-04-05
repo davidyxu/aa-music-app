@@ -1,9 +1,14 @@
 MusicApp::Application.routes.draw do
   resources :artists
   resources :bands do
-    resources :recordings, :only => [:index, :new]
+    collection do
+      get 'search'
+    end
+    resources :recordings, :only => [:new]
   end
-  resources :recordings
+  resources :recordings do
+    resources :singles, :only => [:new]
+  end
   resources :singles
   root :to => "artists#index"
 end

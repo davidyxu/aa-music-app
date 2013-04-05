@@ -10,5 +10,6 @@
 </ul>
 </p>
 <%#= link_to "All Recordings", recordings_path %>
+<%= link_to "Add Song", new_recording_single_path(@recording) %>
 <%= link_to "Edit", edit_recording_path(@recording)%>
 <%= link_to "Delete", recording_path(@recording), :method => :delete %>
