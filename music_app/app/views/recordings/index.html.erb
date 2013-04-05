@@ -5,4 +5,11 @@
 <li><%= link_to recording.name, recording_path(recording) %></li>
 <% end %>
 </ul>
+
+<p>
+  Sort by:
+  <%= link_to "Name", :controller => "recordings", :query => "name"%>
+  /
+  <%= link_to "Band Name", :controller => "recordings", :query => "band_name"%>
+</p>
 <%= link_to "Create New Recording", new_recording_path %>

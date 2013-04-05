@@ -1,12 +1,20 @@
 class RecordingsController < ApplicationController
   def index
-    @recordings = Recording.all
+    case params["query"]
+    when "name"
+      @recordings = Recording.order(:name)
+    when "band_name"
+      @recordings = Recording.includes(:band).order("bands.name")
+    else
+      @recordings = Recording.all
+    end
   end
   def show
     @recording = Recording.includes(:band).find(params[:id])
   end
   def new
     @recording = Recording.new
+    @recording.band_id = params[:band_id]
   end
   def create
     @recording = Recording.create!(params[:recording])

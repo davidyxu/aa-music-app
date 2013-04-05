@@ -10,6 +10,8 @@
     <li><%= link_to recording.name, recording_path(recording)%></li>
   <% end %>
   </ul>
+  <%#= link_to "Add Recording", new_recording_path(recording_id)%>
+  <%= link_to "Add Recording", new_band_recording_path(@band)%>
 </p>
 
 <br/><br/>
